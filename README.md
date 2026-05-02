@@ -1,3 +1,3 @@
-# Golf Buddies V5
+# Golf Buddies V6
 
-Logo included with polished UI.
+Logo properly embedded. Date alignment fixed. Formulas unchanged.
