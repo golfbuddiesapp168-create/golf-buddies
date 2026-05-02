@@ -1,3 +1,3 @@
 # Golf Buddies
 
-Final UI fix: date alignment, Select Course, Choose Player.
+Logo added. Date alignment improved. Select Course placeholder.
