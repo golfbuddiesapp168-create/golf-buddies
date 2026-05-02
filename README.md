@@ -1,3 +1,3 @@
-# Golf Buddies
+# Golf Buddies V4
 
-Option #2 logo added. Sidebar alignment improved. Select Course and Choose Player placeholders.
+Polished mobile UI version.
