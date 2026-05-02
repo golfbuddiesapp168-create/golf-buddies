@@ -440,35 +440,6 @@ html,body{
   }
 }
 
-
-/* FINAL UI PATCH: date alignment + clean placeholders */
-input[type="date"]{
-  max-width:100%!important;
-  width:100%!important;
-  overflow:hidden!important;
-}
-.card input[type="date"]{
-  padding-right:12px!important;
-  text-align:center!important;
-}
-select:invalid,
-select.placeholder,
-input::placeholder{
-  color:rgba(244,255,232,.62)!important;
-}
-@media(min-width:801px){
-  .card input[type="date"],
-  .card select{
-    min-width:0!important;
-  }
-}
-@media(max-width:900px){
-  input[type="date"]{
-    font-size:16px!important;
-    text-align:center!important;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -665,7 +636,7 @@ function addPlayer(n){
   n=(n||'').trim(); if(!n||state.players.includes(n))return;
   state.players.push(n); state.rel[n]=Array(18).fill(null); save(); render();
 }
-function addQuick(){let v=document.getElementById('quickPlayer').value;if(!v){alert('Please choose a player.');return;}addPlayer(v)}
+function addQuick(){addPlayer(document.getElementById('quickPlayer').value)}
 function addNew(){let i=document.getElementById('newName');addPlayer(i.value);i.value=''}
 function removePlayer(n){
   state.players=state.players.filter(x=>x!==n); delete state.rel[n];
@@ -774,14 +745,14 @@ function delRound(id){let list=JSON.parse(localStorage.getItem('gb_saved_rounds'
 function renderControls(){
   document.getElementById('date').value=state.date;
   document.getElementById('dateBadge').textContent=new Date(state.date).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
-  document.getElementById('course').innerHTML='<option value="" disabled>Select Course</option>'+Object.keys(COURSES).map(k=>`<option value="${k}">${COURSES[k].label}</option>`).join('');
+  document.getElementById('course').innerHTML=Object.keys(COURSES).map(k=>`<option value="${k}">${COURSES[k].label}</option>`).join('');
   document.getElementById('course').value=state.course;
   let available=MASTER.filter(n=>!state.players.includes(n));
-  document.getElementById('quickPlayer').innerHTML='<option value="" disabled selected>Choose Player</option>'+available.sort().map(n=>`<option value="${n}">${n}</option>`).join('');
+  document.getElementById('quickPlayer').innerHTML=available.map(n=>`<option>${n}</option>`).join('');
   
   let assigned=[...state.teams.A,...state.teams.B];
   let unassigned=state.players.filter(n=>!assigned.includes(n));
-  document.getElementById('assignPlayer').innerHTML='<option value="" disabled selected>Choose Team Player</option>'+unassigned.sort().map(n=>`<option value="${n}">${n}</option>`).join('');
+  document.getElementById('assignPlayer').innerHTML=unassigned.map(n=>`<option>${n}</option>`).join('');
 
   document.getElementById('pills').innerHTML=state.players.map(n=>`<span class="pill">${n}<button onclick="removePlayer('${n.replace(/'/g,"\\'")}')">×</button></span>`).join('');
 }
