@@ -1,3 +1,3 @@
 # Golf Buddies
 
-Logo added. Date alignment improved. Select Course placeholder.
+Option #2 logo added. Sidebar alignment improved. Select Course and Choose Player placeholders.
