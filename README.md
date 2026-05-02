@@ -1,3 +1,3 @@
-# Golf Buddies V4
+# Golf Buddies V5
 
-Polished mobile UI version.
+Logo included with polished UI.
