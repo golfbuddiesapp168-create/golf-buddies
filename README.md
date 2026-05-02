@@ -1,3 +1,3 @@
 # Golf Buddies
 
-Golf Buddies live scoring app.
+Final UI fix: date alignment, Select Course, Choose Player.
