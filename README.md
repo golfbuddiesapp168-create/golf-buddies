@@ -1,2 +1,3 @@
-# golf-buddies
-Golf buddies Live Scoring App
+# Golf Buddies
+
+Golf Buddies live scoring app.
